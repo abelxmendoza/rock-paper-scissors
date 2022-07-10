@@ -57,7 +57,11 @@ html, body {
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  
+ 
+  #hands {
+    
+    margin-bottom: 30px;
+}
   #endGameButton {
 
     width: 500px;
@@ -95,4 +99,30 @@ html, body {
     font-size: large;
     margin-top: 100px;
     
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    #gameTitle {
+
+        display: flex;
+        flex-direction: row;
+        font-size: 23px;
+    }
+
+    .rpsButton {
+
+        height: 140px;
+        width: 120px;
+    }
+    .rpsButton img {
+
+        height: 100px;
+    }
+
+    #hands {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
 }
