@@ -10,16 +10,53 @@
 
 <body>
   <div class="wrapper">
+
+    <h1>Rock Paper Scissors</h1>
   <div class="buttons">
-    <button class="rpsButton" value="Rock" onclick="onClickRPS('Rock')">✊</button>
-    <button class="rpsButton" value="Paper" onclick="onClickRPS('Paper')">🤚</button>
-    <button class="rpsButton" value="Scissors" onclick="onClickRPS('Scissors')">✌</button>
+    <button class="rpsButton" value="Rock" onclick="onClickRPS('Rock')">
+        
+        <img 
+            src="https://media.celebmagazine.com/brand-img/fbH_vh-ap/0x0/2020/09/the-rock-dwayne-johnson-profile.jpg"
+            height="190px"
+        />
+    
+    </button>
+    <button class="rpsButton" value="Paper" onclick="onClickRPS('Paper')">
+        
+        <img src = "https://assets.manufactum.de/p/083/083490/83490_01.jpg/stainless-steel-toilet-paper-holder.jpg?profile=pdsmain_1500"
+             height ="170px"   
+        />
+     
+    </button>
+    <button class="rpsButton" value="Scissors" onclick="onClickRPS('Scissors')">
+        <img src = "https://s3.amazonaws.com/prod.skimble/assets/1424350/image_iphone.jpg"
+             height ="170px"   
+        />
+    </button>
   </div>
   <div class="resultContainer">
   <div id="player-score"></div>
   <div id="hands"></div>
   <div id="result"></div>
-  <button id='endGameButton' onclick="endGame()">🔴</button>
+  
+  <!------
+  <button id='endGameButton' onclick="endGame()" width = "500px" height = "200px" >
+    <img 
+        src = "http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/b36b647d1d3c26a.png "
+        height="70px"
+    />
+    </button>
+
+    ------>
+  
+  <img src = "http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/b36b647d1d3c26a.png"
+        height = "150px"
+        width = "400px"
+        id = "endGameImage"
+        onclick="endGame()" 
+        
+        
+    />
   </div>
   </div>
   

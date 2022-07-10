@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 html, body {
     height: 100%;
     width: 100%;
     padding: 0;
     margin:0;
+    font-family: 'Press Start 2P';
   }
   
   .wrapper {
@@ -20,10 +23,10 @@ html, body {
     display: flex;
     gap: 20px;
   }
-  
+ 
   button {
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
     font-size: 48px;
     border-radius: 30px;
     cursor: pointer;
@@ -36,4 +39,29 @@ html, body {
     margin-top: 20px;
   }
   
-  
+  #endGameButton {
+
+    width: 500px;
+    height: 100px;
+  }
+ 
+#endGameButton img {
+
+    width: 400px;
+    height: 100px;
+
+}
+
+#endGameImage:hover {
+
+    transform: scale(0.9);
+}
+
+#endGame {
+
+    transform: scale(0.6);
+    -webkit-box-shadow: 10px 10px 33px 26px rgba(138,0,25,1);
+    -moz-box-shadow: 10px 10px 33px 26px rgba(138,0,25,1);
+    box-shadow: 10px 10px 33px 26px rgba(138,0,25,1);
+    
+}

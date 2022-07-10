@@ -199,7 +199,11 @@ function endGame() {
   result.innerText =  " "
   handsDiv.innerText = " "
   playerScoreDiv.innerText = " "
-  
+ 
+
+  document.getElementById("endGameImage").setAttribute("class" , "endGame")
+
+
   
 }
 
