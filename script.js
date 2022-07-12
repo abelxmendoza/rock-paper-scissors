@@ -52,7 +52,16 @@ function getComputerChoice() {
 function getResult(playerChoice, computerChoice) {
   // return the result of score based on if you won, drew, or lost
 
-  let score = 0
+  let score;
+  let compScore;
+
+  let totalPlayerScore = totalScore.playerScore
+
+  let totalComputerScore = totalScore.computerScore
+
+  let playerScore = document.getElementById('yourScore')
+  let computerScore = document.getElementById('computerScore')
+
 
   //Human Wins
   if (playerChoice == 'Rock' && computerChoice == "Scissors" ||         playerChoice == "Scissors" && computerChoice == "Paper" || 
@@ -60,27 +69,34 @@ function getResult(playerChoice, computerChoice) {
   {
     score = 1
 
+    compScore = -1
+
     console.log("Human Choice: " + playerChoice)
     console.log("Computer Choice: " + computerChoice)
     console.log("Human Wins")
+    totalPlayerScore++
+    totalComputerScore--
+    
   }  
 
   //Human Losses
   else if (playerChoice == "Scissors" && computerChoice == "Rock"           || playerChoice == "Rock" && computerChoice == "Paper"             || playerChoice == "Paper" && computerChoice ==                    "Scissors")
   {
     score = -1
+    compScore = 1
 
         console.log("Human Choice: " + playerChoice)
         console.log("Computer Choice: " + computerChoice)
         console.log("ROBOTS FOR THE WIN")
-
+        totalPlayerScore--
+        totalComputerScore++
   }
 
   //Human Draws
   else if (playerChoice == "Rock" && computerChoice == "Rock" || playerChoice == "Scissors" && computerChoice == "Scissors" || playerChoice == "Paper" && computerChoice == "Paper")
   {
     score = 0
-
+    compScore = 0
       console.log("Human Choice: " + playerChoice)
         console.log("Computer Choice: " + computerChoice)
         console.log("Its a Draw Boys")
@@ -88,17 +104,27 @@ function getResult(playerChoice, computerChoice) {
 
   else {
     score = 0
+    compScore = 0
     console.log("DRAW!")
   }
   // All situations where human draws, set `score` to 0
   
 
+
   // All situations where human wins, set `score` to 1
   // make sure to use else ifs here
   
 
+
+  //playerScore.innerText =`Your Score: ${totalScore['playerScore']}`
+
+//playerScore.innerText =`Your Score: ${Number(playerScore.innerText) + score}`
+
+//computerScore.innerText =`Robot Score: ${totalScore['computerScore']}`
+
+
   // Otherwise human loses (aka set score to -1)
-  
+ 
 
   // return score
 
@@ -106,6 +132,11 @@ function getResult(playerChoice, computerChoice) {
 }
 
 //console.log(getResult("Rock" , getComputerChoice()))
+
+
+
+
+
 
 
 // ** showResult updates the DOM to `You Win!` or `You Lose!` or `It's a Draw!` based on the score. Also shows Player Choice vs. Computer Choice**
@@ -116,25 +147,53 @@ function showResult(score, playerChoice, computerChoice) {
 
   let result = document.getElementById("result")
   let handsDiv = document.getElementById("hands")
-  const playerScoreDiv = document.getElementById("player-score")
+  //const playerScoreDiv = document.getElementById("player-score")
+
+  let playerScore = document.getElementById('yourScore')
+  let computerScore = document.getElementById('computerScore')
+
+  
 
   hands.innerText = `👨🏾‍🎤 ${playerChoice} vs. 🤖 ${computerChoice}`
 
   if (score == 1)
   {
     result.innerText = "You Win Champ! " + " " + playerChoice + " " + "Beats " + " " + computerChoice
+    //playerScore++
+    //yourScoreDiv.innerText = "Your Score: "
+    //computerScore--
+    //computerScoreDiv.innerText = "Computer Score:"
   }
   else if (score == -1)
   {
     result.innerText = "You Lose :( " + " " + computerChoice + " " + "Beats" + " " + playerChoice
+    
+    //yourScoreDiv.innerText = `Your Score: ${playerScore}`
+    
+    //computerScoreDiv.innerText = `Computer Score: ${computerScore}`
   }
   else if (score == 0)
   {
     result.innerText = "Its a Draw Boys" 
+   
+    //yourScoreDiv.innerText = `Your Score: ${playerScore}`
+    
+    //computerScoreDiv.innerText = `Computer Score: ${computerScore}`
   }
   else {
     result.innerText = "DRAW" + playerChoice + "vs." + computerChoice
+   
+    //yourScoreDiv.innerText = `Your Score: ${playerScore}`
+    
+    //computerScoreDiv.innerText = `Computer Score: ${computerScore}`
   }
+
+  playerScore.innerText =`👨🏾‍🎤 Your Score: ${totalScore['playerScore']}`
+
+  
+  computerScore.innerText =`🤖 Robot Score: ${totalScore['computerScore']}`
+  
+
 }
 
 // ** Calculate who won and show it on the screen **
@@ -142,11 +201,32 @@ function onClickRPS(playerChoice) {
 
   let weapon = playerChoice
   let enemyWeapon = getComputerChoice()
+  let compResult;
   
   console.log("YourChoice: " + weapon)
   console.log("ComputerChoice: " + enemyWeapon)
   
    let gameResult = getResult(weapon, enemyWeapon)
+   totalScore['playerScore'] += gameResult
+
+   
+   if( gameResult == 1)
+    {
+      compResult = -1
+      totalScore['computerScore'] += compResult
+    }
+    else if (gameResult == -1)
+    {
+      compResult = 1
+      totalScore['computerScore'] += compResult
+    }
+    else {
+
+      compResult = 0
+      totalScore['computerScore'] += compResult
+    }
+
+    
     //console.log(getResult(weapon, getComputerChoice()))
 
   showResult(gameResult, weapon, enemyWeapon )
@@ -196,11 +276,18 @@ function endGame() {
   let handsDiv = document.getElementById("hands")
   const playerScoreDiv = document.getElementById("player-score")
 
+  let yourScore = document.getElementById("yourScore")
+
+  let compScore = document.getElementById("computerScore")
+
+  yourScore.innerText = " "
+  compScore.innerText = " "
   result.innerText =  " "
   handsDiv.innerText = " "
   playerScoreDiv.innerText = " "
  
-
+  totalScore.playerScore = 0
+  totalScore.computerScore = 0
   document.getElementById("endGameImage").setAttribute("class" , "endGame")
 
 
