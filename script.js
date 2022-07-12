@@ -152,40 +152,82 @@ function showResult(score, playerChoice, computerChoice) {
   let playerScore = document.getElementById('yourScore')
   let computerScore = document.getElementById('computerScore')
 
+  let randomMessage =  Math.floor(Math.random() * 3)
+
+
+
   
 
   hands.innerText = `👨🏾‍🎤 ${playerChoice} vs. 🤖 ${computerChoice}`
 
   if (score == 1)
   {
-    result.innerText = "You Win Champ! " + " " + playerChoice + " " + "Beats " + " " + computerChoice
-    //playerScore++
-    //yourScoreDiv.innerText = "Your Score: "
-    //computerScore--
-    //computerScoreDiv.innerText = "Computer Score:"
+    if(randomMessage == 1)
+    {
+      result.innerText = "You Win Champ! " + " " + playerChoice + " " + "Beats " + " " + computerChoice 
+    }
+    else if (randomMessage == 2)
+    {
+      result.innerText = "Victory! Robots Defeated 💪"
+
+    }
+    else 
+    {
+      result.innerText = "Humans win this battle 💪"
+    }
+   
   }
+ 
   else if (score == -1)
   {
-    result.innerText = "You Lose :( " + " " + computerChoice + " " + "Beats" + " " + playerChoice
     
-    //yourScoreDiv.innerText = `Your Score: ${playerScore}`
-    
-    //computerScoreDiv.innerText = `Computer Score: ${computerScore}`
+        if(randomMessage == 1)
+        {
+          result.innerText = "You Lose :( " + " " + computerChoice + " " + "Beats " + " " + playerChoice 
+        }
+        else if (randomMessage == 2)
+        {
+          result.innerText = "ROBOTS FOR THE WIN 🦾"
+
+        }
+        else 
+        {
+          result.innerText = "Destroy all Humans 🦾"
+        }
   }
   else if (score == 0)
   {
-    result.innerText = "Its a Draw Boys" 
+    if(randomMessage == 1)
+    {
+      result.innerText = "It's a Draw Boys"
+    }
+    else if (randomMessage == 2)
+    {
+      result.innerText = "TIE GAME"
+
+    }
+    else 
+    {
+      result.innerText = "You're both winners!"
+    }
    
-    //yourScoreDiv.innerText = `Your Score: ${playerScore}`
-    
-    //computerScoreDiv.innerText = `Computer Score: ${computerScore}`
+   
   }
   else {
-    result.innerText = "DRAW" + playerChoice + "vs." + computerChoice
-   
-    //yourScoreDiv.innerText = `Your Score: ${playerScore}`
-    
-    //computerScoreDiv.innerText = `Computer Score: ${computerScore}`
+    if(randomMessage == 1)
+    {
+      result.innerText = "It's a Draw Boys"
+    }
+    else if (randomMessage == 2)
+    {
+      result.innerText = "TIE GAME"
+
+    }
+    else 
+    {
+      result.innerText = "You're both winners!"
+    }
+  
   }
 
   playerScore.innerText =`👨🏾‍🎤 Your Score: ${totalScore['playerScore']}`
