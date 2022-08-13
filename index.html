@@ -31,6 +31,7 @@
              height ="170px"   
         />
      
+
     </button>
     <button class="rpsButton" value="Scissors" onclick="onClickRPS('Scissors')">
         <img src = "https://s3.amazonaws.com/prod.skimble/assets/1424350/image_iphone.jpg"
@@ -40,7 +41,9 @@
   </div>
   <div class="resultContainer">
   <div id="player-score"></div>
-  <div id="hands"></div>
+  <div id="hands">
+    <img id = "robot"/>
+  </div>
   <div id="result"></div>
   
   <!------
@@ -69,6 +72,14 @@
   </div>
   </div>
   
+
+  <audio id="cheering" controls style="display:none">
+    <source src="Cheering 3-SoundBible.com-1680253418.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="robotCheer" controls style="display:none">
+    <source src="mixkit-retro-robot-sound-1421.wav" type="audio/wav">
+  </audio>
   <script src="script.js"></script>
 </body>
 

@@ -14,7 +14,22 @@
 // getComputerChoice() 👉 'Rock'
 // getComputerChoice() 👉 'Scissors'
 
+/*
+
+fetch('https://robohash.org/5.255.253.156.png')
+  .then(response => response.json())
+  .then(json => { console.log(json.message) 
+  })
+
+*/
+
+
+
 const totalScore = { computerScore: 0, playerScore: 0 }
+
+
+
+
 
 
 function getComputerChoice() {
@@ -156,6 +171,7 @@ function showResult(score, playerChoice, computerChoice) {
 
 
 
+
   
 
   hands.innerText = `👨🏾‍🎤 ${playerChoice} vs. 🤖 ${computerChoice}`
@@ -175,12 +191,16 @@ function showResult(score, playerChoice, computerChoice) {
     {
       result.innerText = "Humans win this battle 💪"
     }
+
+    document.getElementById("cheering").play()
    
   }
  
   else if (score == -1)
   {
-    
+   
+      
+
         if(randomMessage == 1)
         {
           result.innerText = "You Lose :( " + " " + computerChoice + " " + "Beats " + " " + playerChoice 
@@ -189,11 +209,15 @@ function showResult(score, playerChoice, computerChoice) {
         {
           result.innerText = "ROBOTS FOR THE WIN 🦾"
 
+
         }
         else 
         {
           result.innerText = "Destroy all Humans 🦾"
         }
+
+        document.getElementById("robotCheer").play()
+
   }
   else if (score == 0)
   {
